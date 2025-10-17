@@ -1,0 +1,24 @@
+# Ignore frontend and external directories
+react/
+oaksland/
+.mcc/
+.arduinoIDE/
+
+# Python cache & environment
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env/
+venv/
+myenv/
+
+# Node modules
+node_modules/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# JSON and log files that are temporary
+*.log

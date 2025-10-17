@@ -1,0 +1,1 @@
+SELECT * FROM expatpedia_db.accounts_customuser;
