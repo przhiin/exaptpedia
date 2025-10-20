@@ -24,7 +24,7 @@ urlpatterns = [
     path('api/', include('accounts.urls')),
     path('api/', include('ACHIEVEMENTS.urls')),
     path('api/', include('BLOG.urls')),
-    path('api/', include('EVENTS.urls')),
+    path('api/', include('events.urls')),
     path('api/', include('FEEDBACK.urls')),
     path('api/', include('GALLERY.urls')),
     path('api/', include('NEWS.urls')),

@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles','rest_framework','rest_framework_simplejwt','django_filters','accounts','home','FEEDBACK','GALLERY','EVENTS','NEWS','ACHIEVEMENTS','BLOG','RESOURCE',
+    'django.contrib.staticfiles','rest_framework','rest_framework_simplejwt','django_filters','accounts','home','FEEDBACK','GALLERY','events','NEWS','ACHIEVEMENTS','BLOG','RESOURCE',
 ]
 
 MIDDLEWARE = [
@@ -60,11 +60,14 @@ ROOT_URLCONF = 'expatpedia.urls'
 
 SESSION_COOKIE_SECURE = False   # True only in production (HTTPS)
 CSRF_COOKIE_SECURE = False      # True only in production (HTTPS)
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']  # Add for local dev
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','https://expatpedia.texbay.in',"https://expat-pedia.onrender.com","expat-pedia.onrender.com"]  # Add for local dev
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
-    "http://127.0.0.1:5173",  # Add for browser consistency
+    "http://127.0.0.1:5173",
+    "https://expatpedia.texbay.in",
+    "https://expat-pedia.onrender.com"
+    # Add for browser consistency
 ]
 # Allow cookies/session to be sent
 CORS_ALLOW_CREDENTIALS = True
@@ -77,6 +80,8 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "https://expatpedia.texbay.in",
+    "https://expat-pedia.onrender.com",
 ]
 
 
@@ -139,13 +144,12 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.mysql',
     #     'NAME': 'defaultdb',
     #     'USER': 'avnadmin',
-    #     'PASSWORD':'AVNS_iKuKgZ9r9NRAoubdCB-'
+    #     'PASSWORD':'AVNS_iKuKgZ9r9NRAoubdCB-',
     #     # '~W,C+N.PE3-AkCi'
     #     'HOST': 'mysql-19a0311f-exaptdb.b.aivencloud.com',    
     #     'PORT': '22788'          
     # }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
