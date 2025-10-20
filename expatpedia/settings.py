@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles','rest_framework','rest_framework_simplejwt','django_filters','accounts','home','FEEDBACK','GALLERY','events','NEWS','ACHIEVEMENTS','BLOG','RESOURCE',
+    'django.contrib.staticfiles','rest_framework','rest_framework_simplejwt','django_filters','accounts','home','FEEDBACK','GALLERY','EVENTS','NEWS','ACHIEVEMENTS','BLOG','RESOURCE',
 ]
 
 MIDDLEWARE = [
