@@ -60,33 +60,26 @@ ROOT_URLCONF = 'expatpedia.urls'
 
 SESSION_COOKIE_SECURE = False   # True only in production (HTTPS)
 CSRF_COOKIE_SECURE = False      # True only in production (HTTPS)
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']  # Add for local dev
 
-ALLOWED_HOSTS = [
-    '127.0.0.1',
-    'localhost',
-    '192.168.1.45',
-    '192.168.1.27',  # LAN IP of your laptop
-]
-
-# Frontend origins (React/Vite)
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",       # React running locally
-    "http://192.168.1.45:5173",    # Access React via LAN
-    "http://192.168.1.27:5173",    # Access React via another LAN IP
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",  # Add for browser consistency
 ]
+# Allow cookies/session to be sent
+CORS_ALLOW_CREDENTIALS = True
 
-CORS_ALLOW_CREDENTIALS = True  # Allow cookies/session/auth headers
-
-SESSION_COOKIE_SAMESITE = 'None'  # Needed for cross-site cookies
+SESSION_COOKIE_SAMESITE = 'None'  # Allow cross-origin cookies
+SESSION_COOKIE_SECURE = False     # False for local dev (HTTP)
 SESSION_COOKIE_HTTPONLY = True
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
-# CSRF trusted origins (must include protocol + port)
+
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
-    "http://192.168.1.45:5173",
-    "http://192.168.1.27:5173",
+    "http://127.0.0.1:5173",
 ]
+
 
 
 CORS_ALLOW_HEADERS = [
