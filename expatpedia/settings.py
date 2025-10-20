@@ -69,9 +69,8 @@ CORS_ALLOWED_ORIGINS = [
 # Allow cookies/session to be sent
 CORS_ALLOW_CREDENTIALS = True
 
-SESSION_COOKIE_SAMESITE = 'None'  # Allow cross-origin cookies
+SESSION_COOKIE_SAMESITE = 'Lax'  
 SESSION_COOKIE_SECURE = False     # False for local dev (HTTP)
-SESSION_COOKIE_HTTPONLY = True
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 
@@ -130,13 +129,21 @@ pymysql.install_as_MySQLdb()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'defaultdb',
-        'USER': 'avnadmin',
-        'PASSWORD':'AVNS_iKuKgZ9r9NRAoubdCB-'
-        # '~W,C+N.PE3-AkCi'
-        'HOST': 'mysql-19a0311f-exaptdb.b.aivencloud.com',    
-        'PORT': '22788'          
+        'NAME': 'expatpedia_db',
+        'USER': 'root',
+        'PASSWORD': '~W,C+N.PE3-AkCi',  
+        'HOST': 'localhost',    
+        'PORT': '3306'          
     }
+    #     'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'defaultdb',
+    #     'USER': 'avnadmin',
+    #     'PASSWORD':'AVNS_iKuKgZ9r9NRAoubdCB-'
+    #     # '~W,C+N.PE3-AkCi'
+    #     'HOST': 'mysql-19a0311f-exaptdb.b.aivencloud.com',    
+    #     'PORT': '22788'          
+    # }
 }
 
 

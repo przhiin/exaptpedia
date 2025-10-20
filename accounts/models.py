@@ -15,6 +15,12 @@ class CustomUser(AbstractUser):
     age = models.IntegerField(null=True, blank=True)
     is_doctor = models.BooleanField(default=False, verbose_name="Is a Doctor?")
     occupation = models.CharField(max_length=255, null=True, blank=True)
+    profile_image = models.ImageField(
+        upload_to='user_images/', 
+        null=True, 
+        blank=True,
+        default='user_images/default.png'
+    )
     
     def save(self, *args, **kwargs):
         # Automatically set occupation if the user is a doctor
