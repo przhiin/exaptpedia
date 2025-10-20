@@ -130,11 +130,12 @@ pymysql.install_as_MySQLdb()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'expatpedia_db',
-        'USER': 'root',
-        'PASSWORD': '~W,C+N.PE3-AkCi',  
-        'HOST': 'localhost',    
-        'PORT': '3306'          
+        'NAME': 'defaultdb',
+        'USER': 'avnadmin',
+        'PASSWORD':'AVNS_iKuKgZ9r9NRAoubdCB-'
+        # '~W,C+N.PE3-AkCi'
+        'HOST': 'mysql-19a0311f-exaptdb.b.aivencloud.com',    
+        'PORT': '22788'          
     }
 }
 
