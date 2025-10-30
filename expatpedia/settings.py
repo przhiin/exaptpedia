@@ -25,7 +25,6 @@ SECRET_KEY = 'django-insecure-l1%hp38je%!4^i-z7%%g7b)3vec8-sy$3+48v^ud4c97dc$c_y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-AUTH_USER_MODEL = 'accounts.CustomUser'
 
 ALLOWED_HOSTS = []
 
@@ -40,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles','rest_framework','rest_framework_simplejwt','django_filters','accounts','home','FEEDBACK','GALLERY','EVENTS','NEWS','ACHIEVEMENTS','BLOG','RESOURCE',
+    'django.contrib.staticfiles','rest_framework','rest_framework_simplejwt','django_filters','accounts','home','gallery','events','blog','contact'
 ]
 
 MIDDLEWARE = [
@@ -108,6 +107,19 @@ JAZZMIN_SETTINGS = {
     "site_brand": "Exaptpedia",
     "welcome_sign": "Welcome to the Exaptpedia Admin",
 }
+
+
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": False,
+    "footer_small_text": False,
+    "body_small_text": False,
+    "brand_small_text": False,
+    "button_small_text": False,
+    "input_border_radius": 5,
+    "button_border_radius": 5,
+}
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -140,16 +152,30 @@ DATABASES = {
         'HOST': 'localhost',    
         'PORT': '3306'          
     }
-    #     'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'defaultdb',
-    #     'USER': 'avnadmin',
-    #     'PASSWORD':'AVNS_iKuKgZ9r9NRAoubdCB-',
-    #     # '~W,C+N.PE3-AkCi'
-    #     'HOST': 'mysql-19a0311f-exaptdb.b.aivencloud.com',    
-    #     'PORT': '22788'          
-    # }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': config('DB_NAME'),
+#         'USER': config('DB_USER'),
+#         'PASSWORD': config('DB_PASSWORD'),
+#         'HOST': config('DB_HOST'),
+#         'PORT': config('DB_PORT', cast=int, default=3306),
+#         'OPTIONS': {'charset': 'utf8mb4'},
+#     }
+# # }
+
+#         'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'defaultdb',
+#         'USER': 'avnadmin',
+#         'PASSWORD':'AVNS_iKuKgZ9r9NRAoubdCB-',
+#         # '~W,C+N.PE3-AkCi'
+#         'HOST': 'mysql-19a0311f-exaptdb.b.aivencloud.com',    
+#         'PORT': '22788'          
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

@@ -1,4 +1,8 @@
-[
+import json
+import re
+
+# Your data - Fixed the data structure (removed extra brackets)
+data = [
   {
     "name": "A. PONNUCHAMY",
     "occupation": "President, Tamil Social and Cultural Association",
@@ -2915,4 +2919,98 @@
     "phone": "33155462",
     "email": "sandrapalanna@gmail.com"
   }
-]
+]  # Your complete JSON data here
+
+# Define occupation categories and their keywords with priority order
+OCCUPATION_CATEGORIES = {
+    'Doctor': [
+        'doctor', 'dr.', 'surgeon', 'physician', 'dentist', 'medical', 'hospital',
+        'consultant', 'specialist', 'clinician', 'practitioner', 'dermatologist',
+        'orthopedic', 'orthopaedic', 'cardiologist', 'gynecologist', 'pediatrician', 
+        'psychiatrist', 'radiologist', 'anesthesiologist', 'neurologist', 'nephrologist',
+        'gastroenterologist', 'ophthalmologist', 'pathologist', 'psychologist',
+        'medical director', 'health', 'clinic', 'medicine', 'dietician'
+    ],
+    'Manager': [
+        'manager', 'managing director', 'director', 'ceo', 'chief executive officer', 
+        'general manager', 'senior manager', 'head of', 'country manager', 'operations manager',
+        'sales manager', 'marketing manager', 'project manager', 'branch manager',
+        'finance manager', 'hr manager', 'admin manager', 'technical manager',
+        'president', 'chairman', 'principal', 'executive director', 'group head',
+        'chief', 'head', 'lead', 'supervisor', 'coordinator', 'controller'
+    ],
+    'Entrepreneur': [
+        'entrepreneur', 'businessman', 'businesswoman', 'proprietor', 'owner',
+        'founder', 'self-employed', 'startup', 'venture', 'enterprise',
+        'managing director', 'ceo', 'director', 'partner', 'investor',
+        'freelancer', 'consultant', 'contractor', 'business', 'trading',
+        'company', 'w.l.l', 'co.', 'est.', 'group'
+    ],
+    'Social Worker': [
+        'social worker', 'community service', 'welfare', 'humanitarian', 'charity',
+        'relief fund', 'founder', 'president', 'secretary', 'treasurer', 'coordinator',
+        'convener', 'member', 'volunteer', 'activist', 'philanthropist',
+        'association', 'society', 'club', 'forum', 'center', 'centre',
+        'cultural', 'welfare', 'help', 'support', 'care'
+    ]
+}
+
+def categorize_occupation(occupation_text):
+    """
+    Categorize occupation based on keywords in the occupation text
+    Returns the category name or empty string if no match found
+    """
+    if not occupation_text or occupation_text.strip() == "":
+        return ""
+    
+    occupation_lower = occupation_text.lower()
+    
+    # Check each category in priority order
+    for category, keywords in OCCUPATION_CATEGORIES.items():
+        for keyword in keywords:
+            # Use word boundaries to avoid partial matches
+            if re.search(r'\b' + re.escape(keyword) + r'\b', occupation_lower):
+                return category
+    
+    return ""
+
+# Process the data and add occupation_category field
+categorized_data = []
+
+for person in data:
+    # Create a copy of the person dictionary
+    person_with_category = person.copy()
+    
+    # Get the occupation text
+    occupation_text = person.get('occupation', '')
+    
+    # Categorize the occupation
+    occupation_category = categorize_occupation(occupation_text)
+    
+    # Add the new field
+    person_with_category['occupation_category'] = occupation_category
+    
+    categorized_data.append(person_with_category)
+
+# Create the new JSON file
+output_filename = "categorized_members.json"
+
+with open(output_filename, 'w', encoding='utf-8') as f:
+    json.dump(categorized_data, f, indent=2, ensure_ascii=False)
+
+print(f"✅ Categorized data saved to {output_filename}")
+
+# Print some statistics
+categories_count = {}
+for person in categorized_data:
+    category = person['occupation_category']
+    categories_count[category] = categories_count.get(category, 0) + 1
+
+print("\n📊 Category Statistics:")
+for category, count in sorted(categories_count.items(), key=lambda x: x[1], reverse=True):
+    print(f"  {category if category else 'Uncategorized'}: {count}")
+
+# Show some examples
+print("\n👥 Sample Categorized Entries:")
+for i, person in enumerate(categorized_data[:10]):
+    print(f"  {i+1}. {person['name']} -> {person['occupation_category']}")

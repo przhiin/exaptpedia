@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class NewsConfig(AppConfig):
+class contactConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'NEWS'
+    name = 'contact'
