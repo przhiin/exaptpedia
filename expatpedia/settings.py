@@ -170,7 +170,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'expatpedia_db',
         'USER': 'avnadmin',
-        'PASSWORD':'AVNS_iKuKgZ9r9NRAoubdCB-',
+        'PASSWORD':'AVNS_aC4pYVJwuuZ9KVESuuk',
         # '~W,C+N.PE3-AkCi'
         'HOST': 'database-preshinraj7-23c1.g.aivencloud.com',    
         'PORT': '14919'          
