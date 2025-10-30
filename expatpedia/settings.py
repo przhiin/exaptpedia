@@ -143,16 +143,16 @@ WSGI_APPLICATION = 'expatpedia.wsgi.application'
 import pymysql
 pymysql.install_as_MySQLdb()
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'expatpedia_db',
-        'USER': 'root',
-        'PASSWORD': '~W,C+N.PE3-AkCi',  
-        'HOST': 'localhost',    
-        'PORT': '3306'          
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'expatpedia_db',
+#         'USER': 'root',
+#         'PASSWORD': '~W,C+N.PE3-AkCi',  
+#         'HOST': 'localhost',    
+#         'PORT': '3306'          
+#     }
+# }
 
 # DATABASES = {
 #     'default': {
@@ -165,17 +165,17 @@ DATABASES = {
 #         'OPTIONS': {'charset': 'utf8mb4'},
 #     }
 # # }
-
-#         'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'defaultdb',
-#         'USER': 'avnadmin',
-#         'PASSWORD':'AVNS_iKuKgZ9r9NRAoubdCB-',
-#         # '~W,C+N.PE3-AkCi'
-#         'HOST': 'mysql-19a0311f-exaptdb.b.aivencloud.com',    
-#         'PORT': '22788'          
-#     }
-# }
+DATABASES = {
+        'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'expatpedia_db',
+        'USER': 'avnadmin',
+        'PASSWORD':'AVNS_iKuKgZ9r9NRAoubdCB-',
+        # '~W,C+N.PE3-AkCi'
+        'HOST': 'database-preshinraj7-23c1.g.aivencloud.com',    
+        'PORT': '14919'          
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
