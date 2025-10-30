@@ -32,7 +32,6 @@ class JobCategory(models.Model):
 class Members(models.Model):
     name = models.CharField(max_length=255)
     phone = models.CharField(max_length=255, blank=True, default='')
-    age = models.IntegerField(null=True, blank=True)
     email = models.EmailField(unique=True)
 
 

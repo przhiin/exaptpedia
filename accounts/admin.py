@@ -27,7 +27,7 @@ class JobCategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Members)
 class MembersAdmin(admin.ModelAdmin):
-    list_display = ('profile_image_tag', 'name', 'position', 'email', 'phone')
+    list_display = ('profile_image', 'name', 'position', 'email', 'phone')
     search_fields = ('name', 'email', 'phone', 'position', 'occupation_category__name')
     list_filter = ('occupation_category',)
 
