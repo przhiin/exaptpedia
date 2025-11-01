@@ -31,8 +31,8 @@ class JobCategory(models.Model):
 
 class Members(models.Model):
     name = models.CharField(max_length=255)
-    phone = models.CharField(max_length=255, blank=True, default='')
-    email = models.EmailField(unique=True)
+    phone = models.CharField(max_length=255, blank=True, default='',)
+    email = models.EmailField(unique=True,blank = True, null = True)
 
 
     occupation_category = models.ForeignKey(
@@ -46,13 +46,8 @@ class Members(models.Model):
     position = models.CharField(
         max_length=255,
         null=True,
-        blank=True
-    )   
-    company = models.CharField(
-        max_length=255,
         blank=True,
-        null=True,
-        verbose_name="Company/Organization"
+        verbose_name="Postion and Organization/Company"
     )
 
     profile_image = models.ImageField(
@@ -73,3 +68,5 @@ class Members(models.Model):
             data = json.load(f)
         for category in data.get("categories", []):
             JobCategory.objects.get_or_create(name=category)
+
+    

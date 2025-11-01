@@ -4,7 +4,6 @@ from .models import Members, JobCategory
 
 
 class DynamicOccupationCategoryFilter(admin.SimpleListFilter):
-    """Filter members by Job Category dynamically."""
     title = 'Occupation Category'
     parameter_name = 'occupation_category'
 
@@ -27,9 +26,9 @@ class JobCategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Members)
 class MembersAdmin(admin.ModelAdmin):
-    list_display = ('profile_image', 'name', 'position', 'email', 'phone')
+    list_display = ('profile_image_tag', 'name', 'position', 'email', 'phone')
     search_fields = ('name', 'email', 'phone', 'position', 'occupation_category__name')
-    list_filter = ('occupation_category',)
+    list_filter = (DynamicOccupationCategoryFilter,)
 
     def profile_image_tag(self, obj):
         if obj.profile_image:
@@ -50,3 +49,17 @@ class MembersAdmin(admin.ModelAdmin):
             user.delete()
         self.message_user(request, f"Successfully deleted {count} user(s).", messages.SUCCESS)
     delete_selected_users.short_description = "Delete selected users (with cleanup)"
+
+
+# ✅ DO NOT replace the global admin.site
+# Just extend its context safely
+def custom_index(self, request, extra_context=None):
+    total_members = Members.objects.count()
+    print("✅ custom_index called — total_members =", total_members)
+    if extra_context is None:
+        extra_context = {}
+    extra_context['total_members'] = total_members
+    return admin.sites.AdminSite.index(self, request, extra_context=extra_context)
+
+# Monkey-patch the index method safely
+admin.site.index = custom_index.__get__(admin.site, admin.sites.AdminSite)
