@@ -59,7 +59,8 @@ ROOT_URLCONF = 'expatpedia.urls'
 
 SESSION_COOKIE_SECURE = False   # True only in production (HTTPS)
 CSRF_COOKIE_SECURE = False      # True only in production (HTTPS)
-ALLOWED_HOSTS = ['127.0.0.1','https://expatpedia.ad-venturemarketing.in','expatpedia.ad-venturemarketing.in' 'localhost','https://exaptpedia.onrender.com','https://exaptpedia.onrender.com','https://exaptpedia.texbay.in',"https://expat-pedia.onrender.com","expat-pedia.onrender.com"]  # Add for local dev
+ALLOWED_HOSTS = ['127.0.0.1','https://expatpedia.ad-venturemarketing.in','expatpedia.ad-venturemarketing.in' 'localhost','https://exaptpedia.onrender.com','https://exaptpedia.onrender.com','https://exaptpedia.texbay.in',"https://expat-pedia.onrender.com","expat-pedia.onrender.com",
+                'exaptpedia.onrender.com']  # Add for local dev
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
