@@ -65,7 +65,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "https://expatpedia.texbay.in",
-    "https://expat-pedia.onrender.com"
+    "https://expat-pedia.onrender.com",
     "https://expatpedia.ad-venturemarketing.in"
     # Add for browser consistency
 ]
